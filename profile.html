@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Information</title>
+    <style>
+        /* Common Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #ffffff, #ffffff);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.5s ease;
+            position: relative;
+        }
+
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background-color: #eee; /* Lighter background on hover */
+        }
+
+        /* Profile Information Styles */
+        .container {
+            width: 80%;
+            max-width: 600px;
+            background-color: #e2e1e1;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-icon {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 5px solid #e1e1e1;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .right-content p {
+            margin: 0;
+            font-size: 16px;
+            color: #333; /* Default text color in light mode */
+        }
+
+        .right-content p:first-child {
+            font-size: 24px;
+            color: #333; /* Default text color in light mode */
+            margin-bottom: 10px;
+        }
+        .options-left {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: left;
+        }
+
+        .options-left label {
+            font-size: 18px;
+            color: #333; /* Default text color in light mode */
+        }
+
+        .options-left select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #fffdfd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+            color: #333; /* Default text color in light mode */
+        }
+
+        .options-left select:hover {
+            border-color: #000000;
+        }
+
+        .options-left h1 {
+            margin-bottom: 10px;
+            font-size: 22px;
+            color: #333; /* Default text color in light mode */
+        }
+
+        .options-left a {
+            text-decoration: none;
+            color: #1b1818;
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            display: block;
+            transition: 0.3s;
+            width: fit-content;
+            margin: 0 auto; /* Centering the Log Out link */
+        }
+
+        .options-left a:hover {
+            background-color: #cccccc; /* Lighter grey on hover */
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background: linear-gradient(to right, #1a1a1a, #303030); /* Dark background gradient */
+            color: #fff; /* Light text color */
+        }
+
+        body.dark-mode .container {
+            background-color: #222; /* Darker background */
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        body.dark-mode .right-content p,
+        body.dark-mode .options-left label,
+        body.dark-mode .options-left select,
+        body.dark-mode .options-left h1 {
+            color: #fff; /* Light text color in dark mode */
+        }
+    </style>
+</head>
+<body class="light-mode">
+
+    <div class="toggle-btn" onclick="toggleMode()">🌓</div>
+
+    <div class="container">
+        <div class="profile-icon">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg" alt="Profile Picture">
+        </div>
+        <div class="right-content">
+            <p>Name: John Doe</p>
+            <p>Email: john.doe@example.com</p>
+            <p>Phone Number: 9876575564</p>
+        </div>
+
+        <!-- Options in the left corner -->
+        <div class="options-left">
+            <h1>Data and Privacy</h1>
+            <label>
+                <select>
+                    <option value="">Data and Privacy</option>
+                    <option value="">Emergency Contacts</option>
+                    <option value="">Personal Info</option>
+                </select>
+            </label>
+
+            <h1>Ride History</h1>
+            <label>
+                <select>
+                    <option value="">Ride History</option>
+                    <option value="">Favourite Rides</option>
+                    <option value="">Overall Rides</option>
+                </select>
+            </label>
+
+            <h1>Account Options</h1>
+            <label>
+                <select>
+                    <option value="">Delete Account</option>
+                    <option value="">Delete Completely</option>
+                    <option value="">Switch Account</option>
+                </select>
+            </label>
+
+            <h1><a href="#">Log Out</a></h1>
+        </div>
+    </div>
+
+    <script>
+        function toggleMode() {
+            const body = document.querySelector('body');
+            body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
